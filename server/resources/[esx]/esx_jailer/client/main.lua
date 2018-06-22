@@ -57,7 +57,7 @@ AddEventHandler('esx_jailer:jail', function(jailTime)
 
 				-- Is the player trying to escape?
 				if GetDistanceBetweenCoords(GetEntityCoords(sourcePed), JailLocation.x, JailLocation.y, JailLocation.z) > 10.0001 then
-					SetEntityCoords(sourcePed, JailLocation.x, JailLocation.y, JailLocation.z)
+					--SetEntityCoords(sourcePed, JailLocation.x, JailLocation.y, JailLocation.z)
 					TriggerEvent('chatMessage', _U('judge'), { 147, 196, 109 }, _U('escape_attempt'))
 				end
 				
