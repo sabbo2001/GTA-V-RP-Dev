@@ -1758,4 +1758,4 @@ CREATE TABLE `whitelist` (
 -- ----------------------------
 -- Records of whitelist
 -- ----------------------------
-INSERT INTO `whitelist` VALUES ('steam:1100001081ca641', '2018-05-07 03:47:27', null, null, '1');
+
