@@ -1,7 +1,7 @@
 Config              = {}
 Config.JailBlip     = {x = 1854.00, y = 2622.00, z = 45.00}
 Config.JailLocation = {x = 1663.00, y = 2553.00, z = 45.00}
-Config.Locale       = 'en'
+Config.Locale       = 'fr'
 
 -- CHECK SKINCHANGER CLIENT MAIN.LUA for matching elements
 Config.Uniforms = {
