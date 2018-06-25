@@ -42,13 +42,13 @@ settings["fr"] = {
 }
 
 
-showBar = false
-showText = true
+showBar = true
+showText = false
 
 
-hud_form = 2 -- 1 : Vertical | 2 = Horizontal
-hud_x = 0.085
-hud_y = 0.745
+hud_form = 1 -- 1 : Vertical | 2 = Horizontal
+hud_x = 0.175
+hud_y = 0.885
 
 text_x = 0.2575
 text_y = 0.975

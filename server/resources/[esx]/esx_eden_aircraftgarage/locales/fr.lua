@@ -1,5 +1,5 @@
 Locales['fr'] = {
-  ['public_garage'] = 'Garage Avions',
+  ['public_garage'] = 'Garage public',
   ['municipal_pound'] = 'Fourriere',
   ['private_garage'] = 'Garage privé',
   ['list_vehicles'] = 'Liste des véhicules',

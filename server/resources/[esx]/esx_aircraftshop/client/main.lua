@@ -814,7 +814,7 @@ AddEventHandler('esx_aircraftshop:hasEnteredMarker', function (zone)
 
   if zone == 'GiveBackVehicle' and Config.EnablePlayerManagement then
     local playerPed = GetPlayerPed(-1)
-      CurrentActionMsg  = _U('vehicle_menu')
+
     if IsPedInAnyVehicle(playerPed, false) then
       local vehicle = GetVehiclePedIsIn(playerPed, false)
 
@@ -977,7 +977,6 @@ Citizen.CreateThread(function ()
             else
               ESX.ShowNotification(_U('not_yours'))
             end
-      ESX.ShowNotification(_U('not_yours'))
           end, GetVehicleNumberPlateText(CurrentActionData.vehicle), CurrentActionData.price)
         end
 

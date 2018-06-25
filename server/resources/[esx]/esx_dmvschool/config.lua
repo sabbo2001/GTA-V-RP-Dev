@@ -18,9 +18,9 @@ Config.VehicleModels = {
 }
 
 Config.SpeedLimits = {
-  residence = 50,
-  town      = 80,
-  freeway   = 120
+  residence = 53,
+  town      = 83,
+  freeway   = 123
 }
 
 Config.Zones = {
@@ -46,7 +46,7 @@ Config.CheckPoints = {
   {
     Pos = {x = 255.139, y = -1400.731, z = 29.537},
     Action = function(playerPed, vehicle, setCurrentZoneType)
-      DrawMissionText(_U('next_point_speed') .. Config.SpeedLimits['residence'] .. 'km/h', 5000)
+      DrawMissionText(_U('next_point_speed') '50 km/h', 5000)
     end
   },
 
@@ -79,7 +79,7 @@ Config.CheckPoints = {
       setCurrentZoneType('town')
 
       Citizen.CreateThread(function()
-        DrawMissionText(_U('stop_look_left') .. Config.SpeedLimits['town'] .. 'km/h', 5000)
+        DrawMissionText(_U('stop_look_left')'80 km/h', 5000)
         PlaySound(-1, 'RACE_PLACED', 'HUD_AWARDS', 0, 0, 1)
         FreezeEntityPosition(vehicle, true)
         Citizen.Wait(6000)
@@ -134,7 +134,7 @@ Config.CheckPoints = {
 
       setCurrentZoneType('freeway')
 
-      DrawMissionText(_U('hway_time') .. Config.SpeedLimits['freeway'] .. 'km/h', 5000)
+      DrawMissionText(_U('hway_time') '120 km/h', 5000)
       PlaySound(-1, 'RACE_PLACED', 'HUD_AWARDS', 0, 0, 1)
     end
   },
@@ -166,7 +166,7 @@ Config.CheckPoints = {
 
       setCurrentZoneType('town')
 
-      DrawMissionText(_U('in_town_speed') .. Config.SpeedLimits['town'] .. 'km/h', 5000)
+      DrawMissionText(_U('in_town_speed') '80 km/h', 5000)
     end
   },
 

@@ -212,7 +212,7 @@ function RemoveItemsAfterRPDeath()
 			RespawnPed(GetPlayerPed(-1), Config.Zones.HospitalInteriorInside1.Pos)
 
 			StopScreenEffect('DeathFailOut')
-  		DoScreenFadeIn(800)
+			DoScreenFadeIn(800)
 		end)
 	end)
 end
@@ -233,7 +233,7 @@ function OnPlayerDeath()
 	end
 
 	ClearPedTasksImmediately(GetPlayerPed(-1))
-	StartScreenEffect('DeathFailOut', 100000, false)
+	StartScreenEffect('DeathFailOut', 0, false)
 end
 
 function TeleportFadeEffect(entity, coords)
@@ -247,7 +247,7 @@ function TeleportFadeEffect(entity, coords)
     end
 
     ESX.Game.Teleport(entity, coords, function()
-          DoScreenFadeIn(800)
+      DoScreenFadeIn(800)
     end)
 
   end)

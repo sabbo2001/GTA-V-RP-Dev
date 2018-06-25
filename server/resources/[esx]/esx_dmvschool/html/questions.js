@@ -27,11 +27,11 @@ var tableauQuestion = [
         propositionD : "Tout cela",
         reponse : "D"},
 		
-	{   question : "What blood alcohol level is classified as driving while intoxicated?",
-        propositionA : "0.05%",
-        propositionB : "0.18%",
-        propositionC : "0.08%",
-        propositionD : "0.06%",
+	{   question : "Qu'elle est le taux d'alcoohol autorisé dans le sang ?",
+        propositionA : "100%",
+        propositionB : "15%",
+        propositionC : "1%",
+        propositionD : "0.6%",
         reponse : "C"},
 		
 	{   question : "A quel moment vous pouvez passer aux feux ?",
@@ -39,7 +39,7 @@ var tableauQuestion = [
         propositionB : "Quand il n'y a personne sur l'intersection",
         propositionC : "Vous êtes dans une zone d'école",
         propositionD : "Quand il est vert et/ou rouge et que je tourne à droite",
-        reponse : "D"},
+        reponse : "A"},
 	
 	{   question : "Un piéton est au feu rouge pour les piétons",
         propositionA : "Vous le laissez passer",
