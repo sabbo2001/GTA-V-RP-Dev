@@ -27,7 +27,7 @@ client_scripts {
 	'locales/sv.lua',
 	'config.lua',
 	'jobs/fisherman.lua',
-	'jobs/fueler.lua',
+	--'jobs/fueler.lua',
 	'jobs/lumberjack.lua',
 	'jobs/miner.lua',
 	--'jobs/reporter.lua',

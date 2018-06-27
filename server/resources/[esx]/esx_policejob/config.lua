@@ -7,7 +7,7 @@ Config.EnablePlayerManagement     = true
 Config.EnableArmoryManagement     = true
 Config.EnableESXIdentity          = true -- only turn this on if you are using esx_identity
 Config.EnableNonFreemodePeds      = false -- turn this on if you want custom peds
-Config.EnableSocietyOwnedVehicles = false
+Config.EnableSocietyOwnedVehicles = false --for test true
 Config.EnableLicenses             = true -- only turn this on if you are using esx_license
 Config.MaxInService               = -1
 Config.Locale                     = 'fr'
@@ -89,10 +89,7 @@ Config.AuthorizedVehicles = {
 	},
 
 	recruit = {
-		{
-			model = 'policeb',
-			label = 'Police Bike'
-		}
+
 	},
 
 	officer = {

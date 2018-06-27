@@ -22,9 +22,9 @@ Stores = {
         lastrobbed = 0
     },
     ["bar_one"] = {
-        position = { ['x'] = 1735.3933105469, ['y'] = 6419.4765625, ['z'] = 35.037246704102 },
+        position = { ['x'] = 1990.579, ['y'] = 3044.957, ['z'] = 47.215171813965 },
         reward = math.random(500,2500),
-        nameofstore = "24/7. (Sandy Shores)",
+        nameofstore = "Yellow Jack. (Sandy Shores)",
         secondsRemaining = 200, -- seconds
         lastrobbed = 0
     },

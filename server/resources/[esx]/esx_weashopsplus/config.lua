@@ -113,8 +113,8 @@ Config.Zones = {
 
 
     BlackWeashop = {
-        legal = 0, --1
-        Items = {
+        legal = 1, --1
+        Items2 = {
             --{name = "WEAPON_MINIGUN", price = 100, label = "WEAPON_MINIGUN"},
             --{name = "WEAPON_RAILGUN", price = 100, label = "WEAPON_RAILGUN"},
             --{name = "WEAPON_AIR_DEFENCE_GUN", price = 100, label = "WEAPON_AIR_DEFENCE_GUN"},

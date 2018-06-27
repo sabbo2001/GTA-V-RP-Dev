@@ -339,12 +339,18 @@ function OpenVehicleSpawnerMenu(station, partNum)
 
   else
 
-    local elements = Config.AuthorizedVehicles.Shared
-    local authorizedVehicles = Config.AuthorizedVehicles[PlayerData.job.grade_name]
-    
-    for i=1, #authorizedVehicles, 1 do
-      table.insert(elements, { label = authorizedVehicles[i].label, model = authorizedVehicles[i].model})
-    end
+	local elements = {}
+
+	local sharedVehicles = Config.AuthorizedVehicles.Shared
+	for i=1, #sharedVehicles, 1 do
+		table.insert(elements, { label = sharedVehicles[i].label, model = sharedVehicles[i].model})
+	end
+
+	local authorizedVehicles = Config.AuthorizedVehicles[PlayerData.job.grade_name]
+	for i=1, #authorizedVehicles, 1 do
+		table.insert(elements, { label = authorizedVehicles[i].label, model = authorizedVehicles[i].model})
+	end
+
     ESX.UI.Menu.Open(
       'default', GetCurrentResourceName(), 'vehicle_spawner',
       {
@@ -391,7 +397,7 @@ function OpenVehicleSpawnerMenu(station, partNum)
                 end)
 
               else
-                ESX.ShowNotification(_U('service_max') .. inServiceCount .. '/' .. maxInService)
+                ESX.ShowNotification(_U('service_max', inServiceCount, maxInService) .. inServiceCount .. '/' .. maxInService)
               end
 
             end, 'police')
@@ -487,7 +493,7 @@ function OpenPoliceActionsMenu()
 			local elements = {}
 			local playerPed = GetPlayerPed(-1)
 			local coords    = GetEntityCoords(playerPed)
-			local vehicle   = GetClosestVehicle(coords.x,  coords.y,  coords.z,  3.0,  0,  71)
+			local vehicle   = ESX.Game.GetVehicleInDirection()
 			
 			if DoesEntityExist(vehicle) then
 				table.insert(elements, {label = _U('vehicle_info'),	value = 'vehicle_infos'})
@@ -505,7 +511,7 @@ function OpenPoliceActionsMenu()
 				elements = elements
 			}, function(data2, menu2)
 				coords    = GetEntityCoords(playerPed)
-				vehicle   = GetClosestVehicle(coords.x, coords.y, coords.z, 3.0,  0, 71)
+				vehicle   = ESX.Game.GetVehicleInDirection()
 				action    = data2.current.value
 				
 				if action == 'search_database' then
@@ -662,7 +668,7 @@ function OpenIdentityCardMenu(player)
       end
 
       local elements = {
-        {label = _U('name') .. data.firstname .. " " .. data.lastname, value = nil},
+        {label = _U('name', data.firstname .. ' ' .. data.lastname), value = nil},
         {label = sexLabel,    value = nil},
         {label = dobLabel,    value = nil},
         {label = heightLabel, value = nil},
@@ -671,7 +677,7 @@ function OpenIdentityCardMenu(player)
       }
 
       if data.drunk ~= nil then
-        table.insert(elements, {label = _U('bac') .. data.drunk .. '%', value = nil})
+        table.insert(elements, {label = _U('bac', data.drunk), value = nil})
       end
 
       if data.licenses ~= nil then
@@ -768,17 +774,17 @@ function OpenBodySearchMenu(player)
     end
 
     table.insert(elements, {
-      label          = _U('confiscate_dirty') .. blackMoney,
+      label          = _U('confiscate_dirty', blackMoney),
       value          = 'black_money',
       itemType       = 'item_account',
       amount         = blackMoney
     })
 
-    table.insert(elements, {label = '--- Armes ---', value = nil})
+    table.insert(elements, {label = _U('guns_label'), value = nil})
 
     for i=1, #data.weapons, 1 do
       table.insert(elements, {
-        label          = _U('confiscate') .. ESX.GetWeaponLabel(data.weapons[i].name),
+        label          = _U('confiscate', ESX.GetWeaponLabel(data.weapons[i].name)),
         value          = data.weapons[i].name,
         itemType       = 'item_weapon',
         amount         = data.ammo,
@@ -790,7 +796,7 @@ function OpenBodySearchMenu(player)
     for i=1, #data.inventory, 1 do
       if data.inventory[i].count > 0 then
         table.insert(elements, {
-          label          = _U('confiscate_inv') .. data.inventory[i].count .. ' ' .. data.inventory[i].label,
+          label          = _U('confiscate_inv', data.inventory[i].count, data.inventory[i].label),
           value          = data.inventory[i].name,
           itemType       = 'item_standard',
           amount         = data.inventory[i].count,
@@ -886,9 +892,9 @@ function OpenFineCategoryMenu(player, category)
         menu.close()
 
         if Config.EnablePlayerManagement then
-          TriggerServerEvent('esx_billing:sendBill', GetPlayerServerId(player), 'society_police', _U('fine_total') .. label, amount)
+          TriggerServerEvent('esx_billing:sendBill', GetPlayerServerId(player), 'society_police', _U('fine_total', label), amount)
         else
-          TriggerServerEvent('esx_billing:sendBill', GetPlayerServerId(player), '', _U('fine_total') .. label, amount)
+          TriggerServerEvent('esx_billing:sendBill', GetPlayerServerId(player), '', _U('fine_total', label), amount)
         end
 
         ESX.SetTimeout(300, function()
@@ -980,12 +986,12 @@ function OpenVehicleInfosMenu(vehicleData)
 
     local elements = {}
 
-    table.insert(elements, {label = _U('plate') .. infos.plate, value = nil})
+    table.insert(elements, {label = _U('plate', infos.plate), value = nil})
 
     if infos.owner == nil then
       table.insert(elements, {label = _U('owner_unknown'), value = nil})
     else
-      table.insert(elements, {label = _U('owner') .. infos.owner, value = nil})
+      table.insert(elements, {label = _U('owner', infos.owner), value = nil})
     end
 
     ESX.UI.Menu.Open(
@@ -1053,7 +1059,7 @@ function OpenPutWeaponMenu()
     local weaponHash = GetHashKey(weaponList[i].name)
 
     if HasPedGotWeapon(playerPed,  weaponHash,  false) and weaponList[i].name ~= 'WEAPON_UNARMED' then
-      local ammo = GetAmmoInPedWeapon(playerPed, weaponHash)
+      --local ammo = GetAmmoInPedWeapon(playerPed, weaponHash)
       table.insert(elements, {label = weaponList[i].label, value = weaponList[i].name})
     end
 
@@ -1416,7 +1422,6 @@ end)
 
 RegisterNetEvent('esx_policejob:drag')
 AddEventHandler('esx_policejob:drag', function(cop)
-  TriggerServerEvent('esx:clientLog', 'starting dragging')
   IsDragged = not IsDragged
   CopPed = tonumber(cop)
 end)
@@ -1831,6 +1836,7 @@ Citizen.CreateThread(function()
 	end
 end)
 
+-- Create blip for colleagues
 function createBlip(id)
 	ped = GetPlayerPed(id)
 	blip = GetBlipFromEntity(ped)
@@ -1838,7 +1844,7 @@ function createBlip(id)
 	if not DoesBlipExist(blip) then -- Add blip and create head display on player
 		blip = AddBlipForEntity(ped)
 		SetBlipSprite(blip, 1)
-		Citizen.InvokeNative(0x5FBCA48327B914DF, blip, true) -- Player Blip indicator
+		ShowHeadingIndicatorOnBlip(blip, true) -- Player Blip indicator
 		SetBlipRotation(blip, math.ceil(GetEntityHeading(veh))) -- update rotation
 		SetBlipNameToPlayerName(blip, id) -- update blip name
 		SetBlipScale(blip, 0.85) -- set scale
@@ -1882,6 +1888,7 @@ AddEventHandler('playerSpawned', function(spawn)
 		TriggerServerEvent('esx_policejob:spawned')
 	end
 	hasAlreadyJoined = true
+	IsHandcuffed = false
 end)
 
 AddEventHandler('esx:onPlayerDeath', function()
