@@ -536,13 +536,13 @@ function CreateBlip()
   else
 
     if BlipVehicle ~= nil then
-      RemoveBlip(BlipVehicle)
-      BlipVehicle = nil
+      --RemoveBlip(BlipVehicle)
+      --BlipVehicle = nil
     end
 
     if BlipVente ~= nil then
-      RemoveBlip(BlipVente)
-      BlipVente = nil
+      --RemoveBlip(BlipVente)
+      --BlipVente = nil
     end
   end
 end

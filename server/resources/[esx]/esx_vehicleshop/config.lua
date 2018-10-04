@@ -1,12 +1,18 @@
 Config                            = {}
 Config.DrawDistance               = 100.0
 Config.MarkerColor                = { r = 120, g = 120, b = 240 }
-Config.EnablePlayerManagement     = false -- If set to true, you need esx_addonaccount, esx_billing and esx_society
+Config.EnablePlayerManagement     = false -- enables the actual car dealer job. You'll need esx_addonaccount, esx_billing and esx_society
 Config.EnablePvCommand            = true
 Config.EnableOwnedVehicles        = true
-Config.EnableSocietyOwnedVehicles = false
+Config.EnableSocietyOwnedVehicles = false -- use with EnablePlayerManagement disabled, or else it wont have any effects
 Config.ResellPercentage           = 50
 Config.Locale                     = 'fr'
+
+-- looks like this: 'LLL NNN'
+-- The maximum plate length is 8 chars (including spaces & symbols), don't go past it!
+Config.PlateLetters  = 3
+Config.PlateNumbers  = 3
+Config.PlateUseSpace = true
 
 Config.Zones = {
 
@@ -24,9 +30,9 @@ Config.Zones = {
   },
 
   ShopOutside = {
-    Pos     = { x = -28.637, y = -1085.691, z = 25.565 },
+    Pos     = { x = -13.4343957901, y = -1098.1116943359, z = 26.672069549561 },
     Size    = { x = 1.5, y = 1.5, z = 1.0 },
-    Heading = 90.0,
+    Heading = 330.0,
     Type    = -1,
   },
 

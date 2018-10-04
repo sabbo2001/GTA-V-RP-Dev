@@ -7,6 +7,7 @@ version '1.0.14'
 server_scripts {
 	'@async/async.lua',
 	'@mysql-async/lib/MySQL.lua',
+
 	'locale.lua',
 	'locales/de.lua',
 	'locales/br.lua',
@@ -14,14 +15,20 @@ server_scripts {
 	'locales/en.lua',
 	'locales/fi.lua',
 	'locales/sv.lua',
+	'locales/pl.lua',
+	'locales/cs.lua',
+
 	'config.lua',
 	'config.weapons.lua',
+
 	'server/common.lua',
 	'server/classes/player.lua',
 	'server/functions.lua',
 	'server/paycheck.lua',
 	'server/main.lua',
-	'server/commands.lua'
+	'server/commands.lua',
+
+	'shared/functions.lua'
 }
 
 client_scripts {
@@ -32,13 +39,22 @@ client_scripts {
 	'locales/en.lua',
 	'locales/fi.lua',
 	'locales/sv.lua',
+	'locales/pl.lua',
+	'locales/cs.lua',
+
 	'config.lua',
 	'config.weapons.lua',
+
 	'client/common.lua',
 	'client/entityiter.lua',
 	'client/functions.lua',
 	'client/wrapper.lua',
-	'client/main.lua'
+	'client/main.lua',
+
+	'client/modules/scaleform.lua',
+	'client/modules/streaming.lua',
+
+	'shared/functions.lua'
 }
 
 ui_page {
@@ -46,6 +62,7 @@ ui_page {
 }
 
 files {
+	'locale.js',
 	'html/ui.html',
 
 	'html/css/app.css',

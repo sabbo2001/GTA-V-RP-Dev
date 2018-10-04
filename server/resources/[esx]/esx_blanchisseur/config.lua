@@ -1,7 +1,7 @@
 Config					= {}
 Config.Locale			= 'fr'
-Config.Slice			= 1000
-Config.Slice2			= 100
+Config.Slice			= 100
+Config.Slice2			= 10
 Config.Percentage		= 70
 Config.MarkerSize   	= {x = 3.0, y = 3.0, z = 3.0}
 Config.openHours		= 17

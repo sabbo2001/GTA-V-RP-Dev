@@ -32,7 +32,7 @@ end)
 
 function VehicleInFront()
     local pos = GetEntityCoords(GetPlayerPed(-1))
-    local entityWorld = GetOffsetFromEntityInWorldCoords(GetPlayerPed(-1), 0.0, 4.0, 0.0)
+    local entityWorld = GetOffsetFromEntityInWorldCoords(GetPlayerPed(-1), 0.0, 5.0, 0.0)
     local rayHandle = CastRayPointToPoint(pos.x, pos.y, pos.z, entityWorld.x, entityWorld.y, entityWorld.z, 10, GetPlayerPed(-1), 0)
     local a, b, c, d, result = GetRaycastResult(rayHandle)
     return result
@@ -44,10 +44,10 @@ Citizen.CreateThread(function()
 
     Wait(0)
 
-    if IsControlPressed(0, Keys["F9"]) and (GetGameTimer() - GUI.Time) > 150 then
+    if IsControlPressed(0, Keys["9"]) and (GetGameTimer() - GUI.Time) > 150 then
         local vehFront = VehicleInFront()
 	    local x,y,z = table.unpack(GetEntityCoords(GetPlayerPed(-1),true))
-	    local closecar = GetClosestVehicle(x, y, z, 4.0, 0, 71)
+	    local closecar = GetClosestVehicle(x, y, z, 15.0, 0, 71)
           if vehFront > 0 and closecar ~= nil and GetPedInVehicleSeat(closecar, -1) ~= GetPlayerPed(-1) then
           	lastVehicle = vehFront
     		local model = GetDisplayNameFromVehicleModel(GetEntityModel(closecar))
@@ -81,11 +81,15 @@ Citizen.CreateThread(function()
   end
 end)
 
+
+
+
+
 RegisterNetEvent('esx_truck_inventory:getInventoryLoaded')
 AddEventHandler('esx_truck_inventory:getInventoryLoaded', function(inventory)
 	local elements = {}
 	local vehFrontBack = VehicleInFront()
-
+	
 
 	table.insert(elements, {
       label     = 'Déposer',
@@ -146,7 +150,7 @@ AddEventHandler('esx_truck_inventory:getInventoryLoaded', function(inventory)
 
 				    if quantity > 0 and quantity <= tonumber(data3.current.count) and vehFront > 0 then
 				    	local x,y,z = table.unpack(GetEntityCoords(GetPlayerPed(-1),true))
-				    	local closecar = GetClosestVehicle(x, y, z, 4.0, 0, 71)
+				    	local closecar = GetClosestVehicle(x, y, z, 15.0, 0, 71)
 				      TriggerServerEvent('esx_truck_inventory:addInventoryItem', GetVehicleClass(closecar), GetDisplayNameFromVehicleModel(GetEntityModel(closecar)), GetVehicleNumberPlateText(vehFront), data3.current.value, quantity, data3.current.name)
 				    else
 			      		ESX.ShowNotification('~rQuantité invalide')

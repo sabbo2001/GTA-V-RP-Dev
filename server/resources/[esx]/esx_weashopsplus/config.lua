@@ -113,17 +113,17 @@ Config.Zones = {
 
 
     BlackWeashop = {
-        legal = 1, --1
+        legal = -1, 
         Items2 = {
             --{name = "WEAPON_MINIGUN", price = 100, label = "WEAPON_MINIGUN"},
             --{name = "WEAPON_RAILGUN", price = 100, label = "WEAPON_RAILGUN"},
             --{name = "WEAPON_AIR_DEFENCE_GUN", price = 100, label = "WEAPON_AIR_DEFENCE_GUN"},
-            {name = "WEAPON_COMPACTLAUNCHER", price = 100, label = "WEAPON_COMPACTLAUNCHER"},
-            {name = "WEAPON_MINISMG", price = 100, label = "WEAPON_MINISMG"},
-            {name = "WEAPON_HOMINGLAUNCHER", price = 100, label = "WEAPON_HOMINGLAUNCHER"},
-            {name = "WEAPON_PROXMINE", price = 100, label = "WEAPON_PROXMINE"},
+            {name = "WEAPON_COMPACTLAUNCHER", price = 25000, label = "WEAPON_COMPACTLAUNCHER"},
+            {name = "WEAPON_MINISMG", price = 40000, label = "WEAPON_MINISMG"},
+            {name = "WEAPON_HOMINGLAUNCHER", price = 30000, label = "WEAPON_HOMINGLAUNCHER"},
+            {name = "WEAPON_PROXMINE", price = 15000, label = "WEAPON_PROXMINE"},
 
-            {name = "WEAPON_BZGAS", price = 100, label = "Gas Poison"}
+            {name = "WEAPON_BZGAS", price = 20000, label = "Gas Poison"}
         },
         Pos   = {
             { x = -1306.239,   y = -394.018,  z = 35.695 },
@@ -131,3 +131,5 @@ Config.Zones = {
     },
 
 }
+
+

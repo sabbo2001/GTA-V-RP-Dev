@@ -17,7 +17,7 @@ Locales['sv'] = {
 	['too_many_pouches'] = 'Du har för många väskor',
 	['not_enough_coke'] = 'Du har inte tillräckligt med kokain för att ~r~bearbeta~s~',
 	['packing_in_prog'] = '~y~Förpackning pågår~s~...',
-	['no_pouchs_sale'] = 'Du har inga mer väskor att ~r~sälja~s~',
+	['no_pouches_sale'] = 'Du har inga mer väskor att ~r~sälja~s~',
 	['sold_one_coke'] = 'du har sålt ~y~1x~s~ ~b~väska med kokain~s~',
 	['sale_in_prog'] = '~g~Försäljning pågår~s~...',
 	['inv_full_meth'] = 'Du kan inte längre plocka meth, du har inte plats ~r~fullt~s~',
@@ -31,7 +31,6 @@ Locales['sv'] = {
 	['not_enough_opium'] = 'Du har inte tillräckligt med opium för att ~r~bearbeta~s~',
 	['sold_one_opium'] = 'du har sålt ~y~1x~s~ ~b~väska med opium~s~',
 	['used_one_opium'] = 'Du använde 1 väska ~b~opium',
-	['exit_marker'] = 'tryck ~INPUT_CONTEXT~ för att avbryta pågående process',
 	-- Blips
 	['coke_field'] = 'coke field',
 	['coke_processing'] = 'coke processing',

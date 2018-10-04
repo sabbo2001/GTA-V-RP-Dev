@@ -95,6 +95,28 @@ function OpenCloakroomMenu()
 
 end
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function OpenVigneActionsMenu()
 
 	local elements = {
@@ -151,6 +173,9 @@ function OpenVigneActionsMenu()
 		end
 	)
 end
+
+
+
 
 function OpenVehicleSpawnerMenu()
 
@@ -297,6 +322,8 @@ function OpenMobileVigneActionsMenu()
 	)
 end
 
+
+
 function OpenGetStocksMenu()
 
 	ESX.TriggerServerCallback('esx_vigneronjob:getStockItems', function(items)
@@ -354,6 +381,12 @@ function OpenGetStocksMenu()
 		)
 	end)
 end
+
+
+
+
+
+
 
 function OpenPutStocksMenu()
 
@@ -430,7 +463,21 @@ AddEventHandler('esx:setJob', function(job)
 	blips()
 end)
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 AddEventHandler('esx_vigneronjob:hasEnteredMarker', function(zone)
+
 	if zone == 'RaisinFarm' and PlayerData.job ~= nil and PlayerData.job.name == 'vigne'  then
 		CurrentAction     = 'raisin_harvest'
 		CurrentActionMsg  = _U('press_collect')
@@ -454,6 +501,8 @@ AddEventHandler('esx_vigneronjob:hasEnteredMarker', function(zone)
 		CurrentActionMsg  = _U('press_sell')
 		CurrentActionData = {zone = zone}
 	end
+
+
 
 	if zone == 'VigneronActions' and PlayerData.job ~= nil and PlayerData.job.name == 'vigne' then
 		CurrentAction     = 'vigne_actions_menu'
@@ -491,6 +540,14 @@ AddEventHandler('esx_vigneronjob:hasEnteredMarker', function(zone)
 	end
 end)
 
+
+
+
+
+
+
+
+
 AddEventHandler('esx_vigneronjob:hasExitedMarker', function(zone)
 	ESX.UI.Menu.CloseAll()
 	if (zone == 'RaisinFarm') and PlayerData.job ~= nil and PlayerData.job.name == 'vigne' then
@@ -504,6 +561,10 @@ AddEventHandler('esx_vigneronjob:hasExitedMarker', function(zone)
 	end
 	CurrentAction = nil
 end)
+
+
+
+
 
 
 RegisterNetEvent('esx_phone:loaded')

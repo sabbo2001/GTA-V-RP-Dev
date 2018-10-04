@@ -17,7 +17,7 @@ Locales['br'] = {
 	['too_many_pouches'] = 'Você tem muitas trouxinhas',
 	['not_enough_coke'] = 'Você não tem folha de coca suficiente para ~r~empacotar~s~',
 	['packing_in_prog'] = '~y~Empacotamento em progresso~s~...',
-	['no_pouchs_sale'] = 'Você não tem mais trouxinhas para ~r~vender~s~',
+	['no_pouches_sale'] = 'Você não tem mais trouxinhas para ~r~vender~s~',
 	['sold_one_coke'] = 'Você vendeu ~g~x1 Trouxinha de Cocaína~s~',
 	['sale_in_prog'] = '~g~Venda em progresso~s~...',
 	['inv_full_meth'] = 'Você não pode mais coletar metanfetamina, seu inventário está ~r~cheio~s~',
@@ -31,7 +31,6 @@ Locales['br'] = {
 	['not_enough_opium'] = 'Você não tem ópio suficiente para ~r~embalar~s~',
 	['sold_one_opium'] = 'Você vendeu ~g~x1 Trouxinha de ópio~s~',
 	['used_one_opium'] = 'Você usou 1 trouxinha de ~b~ópio',
-	['exit_marker'] = 'press ~INPUT_CONTEXT~ to cancel the ~y~process~s~',
 	-- Blips
 	['coke_field'] = 'cocaine Field',
 	['coke_processing'] = 'cocaine Processing',

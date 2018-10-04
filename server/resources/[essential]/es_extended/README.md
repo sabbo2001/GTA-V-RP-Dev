@@ -17,8 +17,8 @@ es_extended is a roleplay framework for FiveM. It is developed on top of [Essent
 - Job system
 - Loadouts and position synced in database
 - The best framework out there for RP servers
-- i18n (locate) system
-- Loads of plugins available
+- i18n (locale) system
+- Plenty of plugins available
 
 ### Requirements
 This order also applies in the startup order.
@@ -57,7 +57,6 @@ git clone https://github.com/ESX-Org/esx_menu_list [esx]/[ui]/esx_menu_list
 - Put it in the `resource/[esx]/[ui]` directory
 - Download https://github.com/ESX-Org/esx_menu_list/releases/latest
 - Put it in the `resource/[esx]/[ui]` directory
-
 
 ## Installation
 - Import `es_extended.sql` in your database

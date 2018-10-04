@@ -5,12 +5,12 @@ Config.EnablePlayerManagement     = false
 Config.EnableSocietyOwnedVehicles = false
 Config.NPCSpawnDistance           = 500.0
 Config.NPCNextToDistance          = 25.0
-Config.NPCJobEarnings             = { min = 250, max = 750 }
+Config.NPCJobEarnings             = { min = 15, max = 40 }
 Config.Locale                     = 'fr'
 
 Config.Zones = {
   MecanoActions = {
-    Pos   = { x = -347.291, y = -133.370, z = 38.009 },
+    Pos   = { x = -342.291, y = -133.370, z = 38.009 },
     Size  = { x = 1.5, y = 1.5, z = 1.0 },
     Color = { r = 204, g = 204, b = 0 },
     Type  = 1,
@@ -34,7 +34,6 @@ Config.Zones = {
     Pos   = { x = -366.354, y = -110.766, z = 37.696 },
     Size  = { x = 1.5, y = 1.5, z = 1.0 },
     Type  = -1,
-    
   },
 
   VehicleDeleter = {

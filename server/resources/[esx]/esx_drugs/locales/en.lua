@@ -17,7 +17,7 @@ Locales['en'] = {
 	['too_many_pouches'] = 'you have too many pouches',
 	['not_enough_coke'] = 'you do not have enough coke to ~r~pack~s~',
 	['packing_in_prog'] = '~y~Packaging in progress~s~...',
-	['no_pouchs_sale'] = 'You have no more pouches for ~r~sale~s~',
+	['no_pouches_sale'] = 'You have no more pouches for ~r~sale~s~',
 	['sold_one_coke'] = 'you\'ve sold ~y~x1~s~ ~y~Cocaine Pouch~s~',
 	['sale_in_prog'] = '~g~Sale in progress~s~...',
 	['inv_full_meth'] = 'you can no longer collect Meth, your inventory is ~r~full~s~',
@@ -31,7 +31,6 @@ Locales['en'] = {
 	['not_enough_opium'] = 'you do not have enough opium to ~r~pack~s~',
 	['sold_one_opium'] = 'you\'ve sold ~g~x1 opium Pouch~s~',
 	['used_one_opium'] = 'you used 1 pouch of ~b~opium',
-	['exit_marker'] = 'press ~INPUT_CONTEXT~ to cancel the ~y~process~s~',
 	-- Blips
 	['coke_field'] = 'cocaine Field',
 	['coke_processing'] = 'cocaine Processing',

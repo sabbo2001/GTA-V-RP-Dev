@@ -1,34 +1,33 @@
-# esx_whitelistEnhanced
+# esx_whitelist
 
 ## Download & Installation
 
 ### Using [fvm](https://github.com/qlaffont/fvm-installer)
 ```
-fvm install --save --folder=esx esx-org/esx_whitelistEnhanced
+fvm install --save --folder=esx esx-org/esx_whitelist
 ```
 
 ### Using Git
 ```
 cd resources
-git clone https://github.com/ESX-Org/esx_whitelistEnhanced [esx]/esx_whitelistEnhanced
+git clone https://github.com/ESX-Org/esx_whitelist [esx]/esx_whitelist
 ```
 
 ### Manually
-- Download https://github.com/ESX-Org/esx_whitelistEnhanced/archive/master.zip
+- Download https://github.com/ESX-Org/esx_whitelist/archive/master.zip
 - Put it in the `[esx]` directory
 
 ## Installation
-- Import `esx_whitelistEnhanced.sql` to your database
-- Disable the hardcap resource
+- Import `esx_whitelist.sql` to your database
 - Add this in your `server.cfg`:
 
 ```
-start esx_whitelistEnhanced
+start esx_whitelist
 ```
 
 # Legal
 ### License
-esx_whitelistEnhanced - Whitelist with anti-spam and queue (+vip)
+esx_whitelist - Whitelist script
 
 Copyright (C) 2015-2018 Jérémie N'gadi
 

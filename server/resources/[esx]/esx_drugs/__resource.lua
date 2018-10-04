@@ -12,7 +12,8 @@ server_scripts {
 	'locales/fr.lua',
 	'locales/es.lua',
 	'locales/sv.lua',
-	'server/esx_drugs_sv.lua',
+	'locales/pl.lua',
+	'server/main.lua',
 	'config.lua'
 }
 
@@ -24,6 +25,7 @@ client_scripts {
 	'locales/fr.lua',
 	'locales/es.lua',
 	'locales/sv.lua',
+	'locales/pl.lua',
 	'config.lua',
-	'client/esx_drugs_cl.lua'
+	'client/main.lua'
 }

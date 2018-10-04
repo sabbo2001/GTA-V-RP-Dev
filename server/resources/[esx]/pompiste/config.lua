@@ -65,7 +65,7 @@ Config.Zones = {
 		Type  = 1
 	},
 	disti = {
-		Pos   = {x = 2793.00, y = 1707.00, z = 24.00},
+    	Pos   = {x = 2793.00, y = 1707.00, z = 24.00},
 		Size  = {x = 10.0, y = 10.0, z = 0.4},
 		Color = {r = 255, g = 0, b = 0},
 		Type  = 1

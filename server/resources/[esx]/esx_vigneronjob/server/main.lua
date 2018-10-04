@@ -17,6 +17,10 @@ end
 
 TriggerEvent('esx_phone:registerNumber', 'vigne', _U('vigneron_client'), true, true)
 TriggerEvent('esx_society:registerSociety', 'vigne', 'Vigneron', 'society_vigne', 'society_vigne', 'society_vigne', {type = 'private'})
+
+
+
+
 local function Harvest(source, zone)
 	if PlayersHarvesting[source] == true then
 
@@ -35,6 +39,9 @@ local function Harvest(source, zone)
 		end
 	end
 end
+
+
+
 
 RegisterServerEvent('esx_vigneronjob:startHarvest')
 AddEventHandler('esx_vigneronjob:startHarvest', function(zone)
@@ -303,27 +310,27 @@ ESX.RegisterServerCallback('esx_vigneronjob:getPlayerInventory', function(source
 end)
 
 
-ESX.RegisterUsableItem('jus_raisin', function(source)
+--ESX.RegisterUsableItem('jus_raisin', function(source)
+--
+--	local xPlayer = ESX.GetPlayerFromId(source)
+--
+--	xPlayer.removeInventoryItem('jus_raisin', 1)
+--
+--	TriggerClientEvent('esx_status:add', source, 'hunger', 40000)
+--	TriggerClientEvent('esx_status:add', source, 'thirst', 120000)
+--	TriggerClientEvent('esx_basicneeds:onDrink', source)
+--	TriggerClientEvent('esx:showNotification', source, _U('used_jus'))
 
-	local xPlayer = ESX.GetPlayerFromId(source)
+--end)
 
-	xPlayer.removeInventoryItem('jus_raisin', 1)
-
-	TriggerClientEvent('esx_status:add', source, 'hunger', 40000)
-	TriggerClientEvent('esx_status:add', source, 'thirst', 120000)
-	TriggerClientEvent('esx_basicneeds:onDrink', source)
-	TriggerClientEvent('esx:showNotification', source, _U('used_jus'))
-
-end)
-
-ESX.RegisterUsableItem('grand_cru', function(source)
-
-	local xPlayer = ESX.GetPlayerFromId(source)
-
-	xPlayer.removeInventoryItem('grand_cru', 1)
-
-	TriggerClientEvent('esx_status:add', source, 'drunk', 400000)
-	TriggerClientEvent('esx_basicneeds:onDrink', source)
-	TriggerClientEvent('esx:showNotification', source, _U('used_grand_cru'))
-
-end)
+--ESX.RegisterUsableItem('grand_cru', function(source)
+--
+--	local xPlayer = ESX.GetPlayerFromId(source)
+--
+--	xPlayer.removeInventoryItem('grand_cru', 1)
+--
+--	TriggerClientEvent('esx_status:add', source, 'drunk', 400000)
+--	TriggerClientEvent('esx_basicneeds:onDrink', source)
+--	TriggerClientEvent('esx:showNotification', source, _U('used_grand_cru'))
+--
+--end)

@@ -26,7 +26,7 @@ AddEventHandler('esx_jailer:sendToJail', function(source, jailTime)
 	local identifier = GetPlayerIdentifiers(source)[1]
 	MySQL.Async.fetchAll('SELECT * FROM jail WHERE identifier=@id', {['@id'] = identifier}, function(result)
 		if result[1] ~= nil then
-			MySQL.Sync.execute("UPDATE jail SET jail_time=@jt WHERE identifier=@id", {['@id'] = identifier, ['@jt'] = jailTime})
+			MySQL.Async.execute("UPDATE jail SET jail_time=@jt WHERE identifier=@id", {['@id'] = identifier, ['@jt'] = jailTime})
 		else
 			MySQL.Async.execute("INSERT INTO jail (identifier,jail_time) VALUES (@identifier,@jail_time)", {['@identifier'] = identifier, ['@jail_time'] = jailTime})
 		end
@@ -67,17 +67,17 @@ end)
 RegisterServerEvent('esx_jailer:updateRemaining')
 AddEventHandler('esx_jailer:updateRemaining', function(jailTime)
 	local identifier = GetPlayerIdentifiers(source)[1]
-	MySQL.Async.fetchAll('SELECT * FROM jail WHERE identifier=@id', {['@id'] = identifier}, function(gotInfo)
-		if gotInfo[1] ~= nil then
-			MySQL.Sync.execute("UPDATE jail SET jail_time=@jt WHERE identifier=@id", {['@id'] = identifier, ['@jt'] = jailTime})
+	MySQL.Async.fetchAll('SELECT * FROM jail WHERE identifier=@id', {['@id'] = identifier}, function(result)
+		if result[1] ~= nil then
+			MySQL.Async.execute("UPDATE jail SET jail_time=@jt WHERE identifier=@id", {['@id'] = identifier, ['@jt'] = jailTime})
 		end
 	end)
 end)
 
 function unjail(target)
 	local identifier = GetPlayerIdentifiers(target)[1]
-	MySQL.Async.fetchAll('SELECT * FROM jail WHERE identifier=@id', {['@id'] = identifier}, function(gotInfo)
-		if gotInfo[1] ~= nil then
+	MySQL.Async.fetchAll('SELECT * FROM jail WHERE identifier=@id', {['@id'] = identifier}, function(result)
+		if result[1] ~= nil then
 			MySQL.Async.execute('DELETE from jail WHERE identifier = @id', {['@id'] = identifier})
 			TriggerClientEvent('chatMessage', -1, _U('judge'), { 147, 196, 109 }, _U('unjailed', GetPlayerName(target)))
 		end

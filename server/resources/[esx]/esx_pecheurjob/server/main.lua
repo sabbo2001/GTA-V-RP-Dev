@@ -25,7 +25,7 @@ TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 
 
 TriggerEvent('esx_phone:registerNumber', 'peche', _U('Pecheur_client'), true, true)
-TriggerEvent('esx_society:registerSociety', 'peche', 'peche', 'society_peche', 'society_peche', 'society_peche', {type = 'private'})
+
 
 
 
@@ -229,7 +229,7 @@ local function Sell(source, zone)
 				return
 
 		
-			elseif xPlayer.getInventoryItem('poisson_lave').count <= 0 and fish == 0then
+			elseif xPlayer.getInventoryItem('poisson_lave').count <= 0 and fish == 0 then
 				TriggerClientEvent('esx:showNotification', source, _U('no_jus_sale'))
 				fish_clear = 0
 				return
@@ -416,33 +416,3 @@ ESX.RegisterServerCallback('esx_pecheurjob:getPlayerInventory', function(source,
 	})
 
 end)
-
-
-
-
-
-
---ESX.RegisterUsableItem('jus_raisin', function(source)
---
---	local xPlayer = ESX.GetPlayerFromId(source)
---
---	xPlayer.removeInventoryItem('jus_raisin', 1)
---
---	TriggerClientEvent('esx_status:add', source, 'hunger', 40000)
---	TriggerClientEvent('esx_status:add', source, 'thirst', 120000)
---	TriggerClientEvent('esx_basicneeds:onDrink', source)
---	TriggerClientEvent('esx:showNotification', source, _U('used_jus'))
---
---end)
-
---ESX.RegisterUsableItem('grand_cru', function(source)
---
---	local xPlayer = ESX.GetPlayerFromId(source)
---
---	xPlayer.removeInventoryItem('grand_cru', 1)
---
---	TriggerClientEvent('esx_status:add', source, 'drunk', 400000)
---	TriggerClientEvent('esx_basicneeds:onDrink', source)
---	TriggerClientEvent('esx:showNotification', source, _U('used_grand_cru'))
---
---end)

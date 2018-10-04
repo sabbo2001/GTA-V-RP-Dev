@@ -11,9 +11,7 @@ local Keys = {
 }
 
 ESX          = nil
-local GUI    = {}
 local isDead = false
-GUI.Time     = 0
 
 Citizen.CreateThread(function()
 	while ESX == nil do
@@ -31,14 +29,14 @@ function ShowBillsMenu()
 		local elements = {}
 
 		for i=1, #bills, 1 do
-			table.insert(elements, {label = bills[i].label .. ' $' .. bills[i].amount, value = bills[i].id})
+			table.insert(elements, {label = bills[i].label .. ' - <span style="color: red;">$' .. bills[i].amount .. '</span>', value = bills[i].id})
 		end
 
 		ESX.UI.Menu.Open(
 			'default', GetCurrentResourceName(), 'billing',
 			{
 				title    = _U('invoices'),
-				align = 'bottom-right',
+				align    = 'bottom-right',
 				elements = elements
 			},
 			function(data, menu)
@@ -64,15 +62,14 @@ end
 -- Key controls
 Citizen.CreateThread(function()
 	while true do
-		Citizen.Wait(25)
-		if IsControlPressed(0, Keys["F7"]) and not isDead and not ESX.UI.Menu.IsOpen('default', GetCurrentResourceName(), 'billing') and (GetGameTimer() - GUI.Time) > 150 then
+		Citizen.Wait(10)
+		if IsControlJustReleased(0, Keys['F7']) and not isDead and not ESX.UI.Menu.IsOpen('default', GetCurrentResourceName(), 'billing') then
 			ShowBillsMenu()
-			GUI.Time = GetGameTimer()
 		end
 	end
 end)
 
-AddEventHandler('esx:onPlayerDeath', function()
+AddEventHandler('esx:onPlayerDeath', function(data)
 	isDead = true
 end)
 

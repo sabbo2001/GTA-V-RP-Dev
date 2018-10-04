@@ -14,7 +14,7 @@ Config.Zones = {
 		Name  = "Récolte de raisin",
 		Type  = 1
 	},
-
+ 
 
 	Traitementpoissonlave = {
 		Pos   = {x = -53.116, y = 1903.248, z = 194.361},

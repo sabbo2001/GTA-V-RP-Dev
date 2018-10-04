@@ -26,7 +26,7 @@ end)
 
 RegisterServerEvent('esx_holdup:rob')
 AddEventHandler('esx_holdup:rob', function(robb)
-	local _source = source
+	local _source  = source
 	local xPlayer  = ESX.GetPlayerFromId(_source)
 	local xPlayers = ESX.GetPlayers()
 
@@ -46,9 +46,10 @@ AddEventHandler('esx_holdup:rob', function(robb)
 			end
 		end
 
-		if rob == false then
+		if not rob then
 			if cops >= Config.PoliceNumberRequired then
 				rob = true
+
 				for i=1, #xPlayers, 1 do
 					local xPlayer = ESX.GetPlayerFromId(xPlayers[i])
 					if xPlayer.job.name == 'police' then
@@ -73,7 +74,12 @@ AddEventHandler('esx_holdup:rob', function(robb)
 						if xPlayer then
 							local award = store.reward
 							TriggerClientEvent('esx_holdup:robberycomplete', savedSource, award)
-							xPlayer.addAccountMoney('black_money', award)
+
+							if Config.GiveBlackMoney then
+								xPlayer.addAccountMoney('black_money', award)
+							else
+								xPlayer.addMoney(award)
+							end
 							
 							local xPlayers = ESX.GetPlayers()
 							for i=1, #xPlayers, 1 do

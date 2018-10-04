@@ -1,7 +1,7 @@
 Locales['fr'] = {
 	['shop_robbery'] = 'braquage magasin',
 	['press_to_rob'] = 'appuyez sur ~INPUT_CONTEXT~ ~o~pour braquer~s~ ~b~%s~s~',
-	['robbery_timer'] = 'braquage magasin: il reste ~r~%s~s~ secondes',
+	['robbery_timer'] = 'Braquage En Cours : il reste ~r~%s~s~ secondes',
 	['recently_robbed'] = 'ce magasin a déjà été braqué. Attendez ~r~%s~b~ secondes.',
 	['rob_in_prog'] = '~r~Braquage en cours à: ~b~%s~s~',
 	['started_to_rob'] = 'vous avez commencé à braquer ~b~%s~s~',
@@ -12,4 +12,5 @@ Locales['fr'] = {
 	['robbery_cancelled_at'] = '~r~Braquage annulé à: ~b~%s~s~',
 	['min_police'] = 'il faut minimum ~b~%s policiers~s~ en ville pour braquer.',
 	['robbery_already'] = '~r~Un braquage est déjà en cours.',
+	['no_threat'] = 'Vous n\'étes pas une menace ...' ,
 }

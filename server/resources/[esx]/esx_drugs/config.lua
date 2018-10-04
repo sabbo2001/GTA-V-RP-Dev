@@ -1,17 +1,18 @@
 Config              = {}
 Config.MarkerType   = 1
 Config.DrawDistance = 100.0
-Config.ZoneSize     = {x = 3.0, y = 3.0, z = 2.0}
+Config.ZoneSize     = {x = 5.0, y = 5.0, z = 3.0}
 Config.MarkerColor  = {r = 100, g = 204, b = 100}
+Config.ShowBlips   = false  --markers visible on the map? (false to hide the markers on the map)
 
-Config.RequiredCopsCoke  = 0  ----A changer
+Config.RequiredCopsCoke  = 0
 Config.RequiredCopsMeth  = 0
 Config.RequiredCopsWeed  = 0
 Config.RequiredCopsOpium = 0
 
-Config.TimeToFarm    = 10 * 600  --A Changer
-Config.TimeToProcess = 15 * 800
-Config.TimeToSell    = 5  * 500
+Config.TimeToFarm    = 17 * 1000
+Config.TimeToProcess = 46 * 1000
+Config.TimeToSell    = 5  * 1000
 
 Config.Locale = 'fr'
 
@@ -27,5 +28,5 @@ Config.Zones = {
 	WeedDealer =		{x = -54.24,	y = -1443.36,	z = 31.06,	name = _U('weed_dealer'),		sprite = 500,	color = 75},
 	OpiumField =		{x = 1972.78,	y = 3819.39,	z = 32.50,	name = _U('opium_field'),		sprite = 51,	color = 60},
 	OpiumProcessing =	{x = 971.86,	y = -2157.00,	z = 28.47,	name = _U('opium_processing'),	sprite = 51,	color = 60},
-	OpiumDealer =		{x = 2331.08,	y = 2570.22,	z = 46.68,	name = _U('opium_dealer'),		sprite = 500,	color = 75}
+	OpiumDealer =		{x = 2331.08,	y = 2570.22,	z = 45.30,	name = _U('opium_dealer'),		sprite = 500,	color = 75}
 }

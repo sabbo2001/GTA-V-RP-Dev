@@ -4,7 +4,7 @@ TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 
 local function WhiteningMoney(source,percent)
 	local source = source
-		SetTimeout(2000, function()
+		SetTimeout(800, function()
 
 		if PlayersWashing[source] == true then
 			local xPlayer		= ESX.GetPlayerFromId(source)
@@ -22,7 +22,7 @@ local function WhiteningMoney(source,percent)
 				xPlayer.addMoney(washedMoney)
 				WhiteningMoney(source,_percent)
 				
-				 TriggerClientEvent("esx_blanchisseur:notify", source, "CHAR_LESTER_DEATHWISH", 1, _U('Notification'), false, _U('cash') .. washedMoney .. _U('cash1'))
+				-- TriggerClientEvent("esx_blanchisseur:notify", source, "CHAR_LESTER_DEATHWISH", 1, _U('Notification'), false, _U('cash') .. washedMoney .. _U('cash1'))
 			end
 		end
 	end)

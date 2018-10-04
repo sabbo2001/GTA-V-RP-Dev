@@ -5,7 +5,7 @@ Config.MarkerColor                = { r = 102, g = 0, b = 102 }
 Config.MarkerSize                 = { x = 1.5, y = 1.5, z = 1.0 }
 Config.ReviveReward               = 700  -- revive reward, set to 0 if you don't want it enabled
 Config.AntiCombatLog              = false -- enable anti-combat logging?
-Config.LoadIpl                    = true -- disable if you're using fivem-ipl or other IPL loaders
+Config.LoadIpl                    = false -- disable if you're using fivem-ipl or other IPL loaders
 Config.Locale                     = 'fr'
 
 local second = 1000
@@ -14,27 +14,21 @@ local minute = 60 * second
 -- How much time before auto respawn at hospital
 Config.RespawnDelayAfterRPDeath   = 15 * minute
 
--- How much time before a menu opens to ask the player if he wants to respawn at hospital now
--- The player is not obliged to select YES, but he will be auto respawn
--- at the end of RespawnDelayAfterRPDeath just above.
-Config.RespawnToHospitalMenuTimer   = true
-Config.MenuRespawnToHospitalDelay   = 3 * minute
-
-Config.EnablePlayerManagement       = true
+Config.EnablePlayerManagement       = false
 Config.EnableSocietyOwnedVehicles   = false
 
-Config.RemoveWeaponsAfterRPDeath    = false
+Config.RemoveWeaponsAfterRPDeath    = true
 Config.RemoveCashAfterRPDeath       = true
-Config.RemoveItemsAfterRPDeath      = false
+Config.RemoveItemsAfterRPDeath      = true
 
--- Will display a timer that shows RespawnDelayAfterRPDeath time remaining
+-- Will display a timer that shows RespawnDelayAfterRPDeath as a countdown
 Config.ShowDeathTimer               = true
 
--- Will allow to respawn at any time, don't use with RespawnToHospitalMenuTimer enabled!
-Config.EarlyRespawn                 = false
--- The player can have a fine (on bank account)
-Config.RespawnFine                  = true
-Config.RespawnFineAmount            = 150
+-- Will allow respawn after half of RespawnDelayAfterRPDeath has elapsed.
+Config.EarlyRespawn                 = true
+-- The player will be fined for respawning early (on bank account)
+Config.EarlyRespawnFine                  = false
+Config.EarlyRespawnFineAmount            = 500
 
 Config.Blip = {
 	Pos     = { x = 307.76, y = -1433.47, z = 28.97 },

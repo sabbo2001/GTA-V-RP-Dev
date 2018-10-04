@@ -6,6 +6,7 @@ Locales['fi'] = {
   ['give'] = 'anna',
   ['remove'] = 'poista',
   ['return'] = 'takaisin',
+  ['give_to'] = 'give to',
   ['amount'] = 'määrä',
   ['giveammo'] = 'anna ammuksia',
   ['amountammo'] = 'ammusten määrä',
@@ -32,8 +33,8 @@ Locales['fi'] = {
   ['received_salary'] = 'sinä vastaanotit palkkaa: ~g~$%s~s~',
   ['received_help'] = 'sinä vastaanotit valtion tukea: ~g~$%s~s~',
   ['company_nomoney'] = 'yritys jolle teet töitä on köyhä eikä voi maksaa palkkaasi.',
-  ['received_paycheck'] = 'sai rahaa',
-  ['bank'] = 'Pankki',
+  ['received_paycheck'] = 'sait palkan',
+  ['bank'] = 'pankki',
   ['black_money'] = 'likainen Raha',
 
   ['act_imp'] = 'toiminto mahdoton',
@@ -69,6 +70,8 @@ Locales['fi'] = {
   ['weapon'] = 'ase',
   ['giveweapon'] = 'anna ase',
   ['disconnect'] = 'poistu serveriltä',
+  ['chat_clear'] = 'tyhjennä chatti',
+  ['chat_clear_all'] = 'tyhjennä chatti kaikilta',
   -- Weapons
   ['weapon_knife'] = 'veitsi',
   ['weapon_nightstick'] = 'pamppu',

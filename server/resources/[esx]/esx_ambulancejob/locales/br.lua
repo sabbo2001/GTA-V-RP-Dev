@@ -21,8 +21,6 @@ Locales['br'] = {
   ['player_not_unconscious'] = 'Não está inconsciente',
   ['player_not_conscious'] = 'that player is not conscious!',
   -- Boss Menu
-  ['deposit_society'] = 'Depositar dinheiro',
-  ['withdraw_society'] = 'Retirar dinheiro da empresa',
   ['boss_actions'] = 'Menu Administração',
   -- Misc
   ['invalid_amount'] = '~r~Quantidade inválida',
@@ -46,13 +44,11 @@ Locales['br'] = {
   -- Phone
   ['alert_ambulance'] = 'Alerta Socorro',
   -- Death
-  ['respawn_at_hospital'] = 'Você quer ser transportado para o hospital ?',
-  ['yes'] = 'Sim',
-  ['no'] = 'no',
-  ['please_wait'] = 'Você será automaticamente transportado para o hospital em ~b~%s minutos %s segundos~s~',
-  ['press_respawn'] = 'Aperte [~b~E~w~] para renascer.',
-  ['respawn_fine'] = 'you paid ~r~$%s~s~ for respawning.',
-  ['distress_send'] = 'press ~b~[G]~s~ to send distress signal',
+  ['please_wait'] = 'you will bleed out in ~b~%s minutes %s seconds~s~\n',
+  ['press_respawn'] = 'press [~b~E~w~] to respawn.',
+  ['respawn_now_fine'] = 'respawn now for ~g~$%s ~w~[Press ~b~E~w~]',
+  ['respawn_fine'] = 'you paid ~r~$%s~s~ to respawn.',
+  ['distress_send'] = 'press [~b~G~s~] to send distress signal',
   ['distress_sent'] = 'distress signal has been sent to available units!',
   ['distress_message'] = 'medical attention required: unconscious citizen!',
   -- Revive
@@ -63,5 +59,4 @@ Locales['br'] = {
   ['not_enough_medikit'] = 'Você não tem ~b~Seringa~w~.',
   ['not_enough_bandage'] = 'Você não tem ~b~Vendagem~w~.',
   ['healed'] = 'Você foi tratado.',
-  -- Misc
 }

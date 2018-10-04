@@ -11,8 +11,6 @@ local Keys = {
 }
 
 ESX                           = nil
-local GUI                     = {}
-GUI.Time                      = 0
 local HasAlreadyEnteredMarker = false
 local LastZone                = nil
 local CurrentAction           = nil
@@ -41,7 +39,7 @@ function OpenShopMenu()
 			'default', GetCurrentResourceName(), 'shop_confirm',
 			{
 				title = _U('valid_this_purchase'),
-				align = 'bottom-right',
+				align = 'top-left',
 				elements = {
 					{label = _U('yes'), value = 'yes'},
 					{label = _U('no'), value = 'no'},
@@ -73,7 +71,7 @@ function OpenShopMenu()
 										'default', GetCurrentResourceName(), 'save_dressing',
 										{
 											title = _U('save_in_dressing'),
-											align = 'bottom-right',
+											align = 'top-left',
 											elements = {
 												{label = _U('yes'), value = 'yes'},
 												{label = _U('no'),  value = 'no'},
@@ -173,8 +171,8 @@ function OpenShopMenu()
 		'pants_2',
 		'shoes_1',
 		'shoes_2',
-	  'chain_1',
-	  'chain_2',
+		'chain_1',
+		'chain_2',
 		'helmet_1',
 		'helmet_2',
 		'glasses_1',
@@ -228,7 +226,7 @@ end)
 Citizen.CreateThread(function()
 	while true do
 
-		Wait(0)
+		Citizen.Wait(1)
 
 		local coords = GetEntityCoords(GetPlayerPed(-1))
 
@@ -284,17 +282,18 @@ Citizen.CreateThread(function()
 			AddTextComponentString(CurrentActionMsg)
 			DisplayHelpTextFromStringLabel(0, 0, 1, -1)
 
-			if IsControlPressed(0,  Keys['E']) and (GetGameTimer() - GUI.Time) > 300 then
+			if IsControlJustReleased(0, Keys['E']) then
 
 				if CurrentAction == 'shop_menu' then
 					OpenShopMenu()
 				end
 
 				CurrentAction = nil
-				GUI.Time      = GetGameTimer()
 
 			end
 
+		else
+			Citizen.Wait(500)
 		end
 
 	end

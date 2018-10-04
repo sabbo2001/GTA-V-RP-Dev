@@ -109,9 +109,10 @@ AddEventHandler('esx_jobs:action', function(job, zone)
     hintToDisplay = "no hint to display"
     hintIsShowed = false
     local playerPed = GetPlayerPed(-1)
-    if IsPedInAnyVehicle(playerPed, 0) then
-    --  TriggerEvent('esx:showNotification', _U('foot_work'))
-    --else
+    --if IsPedInAnyVehicle(playerPed,0) then
+    if IsPedInAnyVehicle(playerPed, 1) then
+      TriggerEvent('esx:showNotification', _U('foot_work'))
+    else
       TriggerServerEvent('esx_jobs:startWork', zone.Item)
     end
   elseif zone.Type == "vehspawner" then
