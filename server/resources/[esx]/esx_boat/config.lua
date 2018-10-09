@@ -1,8 +1,8 @@
 Config               = {}
 
-Config.Locale        = 'true'
+Config.Locale        = 'fr'
 
-Config.LicenseEnable = true -- enable boat license? Requires esx_license
+Config.LicenseEnable = false -- enable boat license? Requires esx_license
 Config.LicensePrice  = 5000
 
 Config.MarkerType    = 1

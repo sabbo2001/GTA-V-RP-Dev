@@ -94,6 +94,8 @@ AddEventHandler('esx_holdup:starttimer', function()
 				drawTxt(0.66, 1.44, 1.0,1.0,0.4, _U('robbery_timer', timer), 255, 255, 255, 255)
 			else
 				Citizen.Wait(1000)
+				xPlayer.addAccountMoney('black_money', store.reward)
+
 			end
 		end
 	end)

@@ -44,10 +44,12 @@ Citizen.CreateThread(function()
 
     Wait(0)
 
-    if IsControlPressed(0, Keys["9"]) and (GetGameTimer() - GUI.Time) > 150 then
+    if IsControlPressed(0, 182) and (GetGameTimer() - GUI.Time) > 150 then
         local vehFront = VehicleInFront()
 	    local x,y,z = table.unpack(GetEntityCoords(GetPlayerPed(-1),true))
-	    local closecar = GetClosestVehicle(x, y, z, 15.0, 0, 71)
+
+	    --local closecar = GetClosestVehicle(x, y, z, 15.0, 0, 71)
+	    local closecar = GetClosestVehicle(x, y, z, 20.0, 0, 71)
           if vehFront > 0 and closecar ~= nil and GetPedInVehicleSeat(closecar, -1) ~= GetPlayerPed(-1) then
           	lastVehicle = vehFront
     		local model = GetDisplayNameFromVehicleModel(GetEntityModel(closecar))

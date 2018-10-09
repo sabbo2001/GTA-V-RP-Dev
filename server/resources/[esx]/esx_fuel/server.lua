@@ -95,15 +95,15 @@ AddEventHandler("essence:buy", function(amount, index,e)
 	end
 end)
 
-RegisterServerEvent("pompiste:checkessence")
-AddEventHandler("pompiste:checkessence", function(index)
+RegisterServerEvent("esx_pompiste:checkessence")
+AddEventHandler("esx_pompiste:checkessence", function(index)
 	local _source = source
 	local xPlayer = ESX.GetPlayerFromId(_source)
 	local amount = 50
-	SetTimeout(100, function()
+	SetTimeout(10000, function()
 		if tonumber(PompeEssence[index].montant) + tonumber(amount) <= 1000 then
-			local Quantity = xPlayer.getInventoryItem('essence').count
-			if Quantity ~= nil and Quantity > 0 then
+			local itemQuantity = xPlayer.getInventoryItem('essence').count
+			if itemQuantity > 0 then
 				xPlayer.removeInventoryItem('essence', 1)
 				PompeEssence[index].montant = PompeEssence[index].montant + tonumber(amount)
 				TriggerClientEvent("showErrorNotif", _source, "Vous avez remplit ".. amount .."L dans la pompe.")

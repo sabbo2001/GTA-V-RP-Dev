@@ -1,9 +1,9 @@
 @echo off
 echo -------------------------------------------------
-echo FiveM Launcher 1.0 Server Version Serveur-Gta-V-RP-1.1-45.81.397
+echo FiveM Launcher 1.0 Server Version Serveur-Gta-V-RP-1.1-45.82.400
 echo -------------------------------------------------
 echo ClearCache ....
-RMDIR /s /q C:\Users\Serv\Desktop\Serveur-Gta-V-RP-1.1-45.81.397\server\cache"
+RMDIR /s /q "C:\Users\Kinder\Desktop\Serveur-Gta-V-RP-1.1-45.82.400\server\cache"
 echo -------------------------------------------------
 echo Vidage Cache OK.
 echo -------------------------------------------------
@@ -206,6 +206,6 @@ echo Progress: ##################### 100%%
 echo.
 echo.
 
-cd C:\Users\Serv\Desktop\Serveur-Gta-V-RP-1.1-45.81.397\server\
+cd C:\Users\Kinder\Desktop\Serveur-Gta-V-RP-1.1-45.82.400\server\
 cmd /k run.cmd +exec serveur.cfg
 

@@ -127,6 +127,7 @@ function OpenCloakroomMenu()
 
 	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'cloakroom',
 	{
+	 	css    = 'actions_metier',
 		title    = _U('cloakroom'),
 		align    = 'top-left',
 		elements = elements
@@ -285,6 +286,7 @@ function OpenArmoryMenu(station)
 
 		ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'armory',
 		{
+			css    = 'ammunation',
 			title    = _U('armory'),
 			align    = 'top-left',
 			elements = elements
@@ -323,6 +325,7 @@ function OpenArmoryMenu(station)
 
 		ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'armory',
 		{
+			css    = 'ammunation',
 			title    = _U('armory'),
 			align    = 'top-left',
 			elements = elements
@@ -358,6 +361,7 @@ function OpenVehicleSpawnerMenu(station, partNum)
 
 			ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'vehicle_spawner',
 			{
+				css    = 'garage',
 				title    = _U('vehicle_menu'),
 				align    = 'top-left',
 				elements = elements
@@ -399,6 +403,7 @@ function OpenVehicleSpawnerMenu(station, partNum)
 
 		ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'vehicle_spawner',
 		{
+			css    = 'garage',
 			title    = _U('vehicle_menu'),
 			align    = 'top-left',
 			elements = elements
@@ -472,7 +477,9 @@ function OpenPoliceActionsMenu()
 				{label = _U('put_in_vehicle'),	value = 'put_in_vehicle'},
 				{label = _U('out_the_vehicle'),	value = 'out_the_vehicle'},
 				{label = _U('fine'),			value = 'fine'},
-				{label = _U('unpaid_bills'),	value = 'unpaid_bills'}
+				{label = _U('unpaid_bills'),	value = 'unpaid_bills'},
+				{label = _U('Prison'),			value = 'Jail'}
+				
 			}
 		
 			if Config.EnableLicenses then
@@ -509,6 +516,8 @@ function OpenPoliceActionsMenu()
 						ShowPlayerLicense(closestPlayer)
 					elseif action == 'unpaid_bills' then
 						OpenUnpaidBillsMenu(closestPlayer)
+					elseif action == 'Jail' then
+						OpenJailMenu(closestPlayer)
 					end
 
 				else
@@ -1200,6 +1209,77 @@ function OpenPutStocksMenu()
 	end)
 
 end
+
+
+
+
+
+function OpenJailMenu(playerid)
+  local elements = {
+    {label = "Cellule 1",     value = 'JailPoliceStation1'},
+    {label = "Cellule 2",     value = 'JailPoliceStation2'},
+    {label = "Cellule 3",     value = 'JailPoliceStation3'},
+    {label = "Cellule fédérale",     value = 'FederalJail'},
+    {label = "Libérer de cellule",     value = 'FreePlayer'},
+  }
+  ESX.UI.Menu.Open(
+	'default', GetCurrentResourceName(), 'jail_menu',
+	{
+	  title    = 'Mettre en prison',
+	  align    = 'top-left',
+	  elements = elements,
+	},
+	function(data3, menu)
+		if data3.current.value ~= "FreePlayer" then
+			maxLength = 4
+			AddTextEntry('FMMC_KEY_TIP8', "Nombre d'heures en prison")
+			DisplayOnscreenKeyboard(1, "FMMC_KEY_TIP8", "", "", "", "", "", maxLength)
+			ESX.ShowNotification("~b~Entrez le nombre d'heures que vous voulez mettre la personne en prison.")
+			blockinput = true
+
+			while UpdateOnscreenKeyboard() ~= 1 and UpdateOnscreenKeyboard() ~= 2 do
+				Citizen.Wait( 0 )
+			end
+
+			local jailtime = GetOnscreenKeyboardResult()
+
+			UnblockMenuInput()
+
+			if string.len(jailtime) >= 1 and tonumber(jailtime) ~= nil then
+				TriggerServerEvent('esx_jb_jailer:PutInJail', playerid, data3.current.value, tonumber(jailtime)*60*60)
+			else
+				return false
+			end
+		else
+			TriggerServerEvent('esx_jb_jailer:UnJailplayer', playerid)
+		end
+	end,
+	function(data3, menu)
+	  menu.close()
+	end
+  )
+end
+
+
+function UnblockMenuInput()
+    Citizen.CreateThread( function()
+        Citizen.Wait( 150 )
+        blockinput = false 
+    end )
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 RegisterNetEvent('esx:setJob')
 AddEventHandler('esx:setJob', function(job)

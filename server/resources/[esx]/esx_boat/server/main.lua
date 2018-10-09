@@ -77,8 +77,9 @@ ESX.RegisterServerCallback('esx_boat:storeVehicle', function (source, cb, plate)
 end)
 
 ESX.RegisterServerCallback('esx_boat:getGarage', function (source, cb)
-	MySQL.Async.fetchAll('SELECT * FROM owned_vehicles WHERE owner = @owner AND vehicleType = @vehicleType AND stored = @stored',
-	{
+	MySQL.Async.fetchAll('SELECT * FROM owned_vehicles WHERE vehicle = @vehicle AND vehicleType =  @vehicleType AND stored = @stored ',
+	 {
+		--['@vehicle'] = vehicle
 		['@owner']       = GetPlayerIdentifiers(source)[1],
 		['@vehicleType'] = 'boat',
 		['@stored']      = true

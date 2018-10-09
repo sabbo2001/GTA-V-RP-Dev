@@ -78,26 +78,26 @@ AddEventHandler('esx_truck_inventory:addInventoryItem', function(type, model, pl
 
 
 
- if type == 0 then MaxCoffreVehicule = 80 --compacts
- elseif type == 1 then MaxCoffreVehicule = 80 --sedans
- elseif type == 2 then MaxCoffreVehicule = 100 --SUV's
+ if type == 0 then MaxCoffreVehicule = 50 --compacts
+ elseif type == 1 then MaxCoffreVehicule = 65 --sedans
+ elseif type == 2 then MaxCoffreVehicule = 70 --SUV's
  elseif type == 3 then MaxCoffreVehicule = 40 --coupes
  elseif type == 4 then MaxCoffreVehicule = 30 --muscle
- elseif type == 5 then MaxCoffreVehicule = 30 --sport classic
- elseif type == 6 then MaxCoffreVehicule = 25 --sport
+ elseif type == 5 then MaxCoffreVehicule = 20 --sport classic
+ elseif type == 6 then MaxCoffreVehicule = 20 --sport
  elseif type == 7 then MaxCoffreVehicule = 10 --super
- elseif type == 8 then MaxCoffreVehicule = 5 --motorcycle
+ elseif type == 8 then MaxCoffreVehicule = 10 --motorcycle
  elseif type == 9 then MaxCoffreVehicule = 80 --offraod
- elseif type == 10 then MaxCoffreVehicule = 150 --industrial
- elseif type == 11 then MaxCoffreVehicule = 80 --utility
- elseif type == 12 then MaxCoffreVehicule = 110 --vans
+ elseif type == 10 then MaxCoffreVehicule = 140 --industrial
+ elseif type == 11 then MaxCoffreVehicule = 70 --utility
+ elseif type == 12 then MaxCoffreVehicule = 100 --vans
  elseif type == 13 then MaxCoffreVehicule = 1 --bicycles
- elseif type == 14 then MaxCoffreVehicule = 30 --boats
- elseif type == 15 then MaxCoffreVehicule = 0 --helicopter
- elseif type == 16 then MaxCoffreVehicule = 0 --plane
- elseif type == 17 then MaxCoffreVehicule = 100 --service
- elseif type == 18 then MaxCoffreVehicule = 100 --emergency
- elseif type == 19 then MaxCoffreVehicule = 100 --military
+ elseif type == 14 then MaxCoffreVehicule = 50 --boats
+ elseif type == 15 then MaxCoffreVehicule = 20 --helicopter
+ elseif type == 16 then MaxCoffreVehicule = 20 --plane
+ elseif type == 17 then MaxCoffreVehicule = 50 --service
+ elseif type == 18 then MaxCoffreVehicule = 50 --emergency
+ elseif type == 19 then MaxCoffreVehicule = 50 --military
  else MaxCoffreVehicule = 15
  end
 print('MaxCoffreVehicule '.. MaxCoffreVehicule)

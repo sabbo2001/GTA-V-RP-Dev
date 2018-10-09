@@ -27,6 +27,7 @@ function OpenMainMenu(zone)
   ESX.UI.Menu.Open(
     'default', GetCurrentResourceName(), 'wea_cat',
     {
+      css    = 'ammunation',
       title = "Weapon Categories",
       elements = {
         { label = "Weapons Level: 1", value = 'wl_1' },

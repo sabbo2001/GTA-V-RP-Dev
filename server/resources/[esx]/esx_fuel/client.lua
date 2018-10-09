@@ -63,7 +63,7 @@ Citizen.CreateThread(function()
 								_essence = essence
 								if(_essence > 0.142) then
 									essence = 0.142
-									TriggerEvent("advancedFuel:setEssence", 100, GetVehicleNumberPlateText(veh), GetDisplayNameFromVehicleModel(GetEntityModel(veh)))
+									TriggerEvent("esx_AdvancedFuel:setEssence", 100, GetVehicleNumberPlateText(veh), GetDisplayNameFromVehicleModel(GetEntityModel(veh)))
 									done = true
 								end
 								SetVehicleUndriveable(veh, true)
@@ -75,7 +75,7 @@ Citizen.CreateThread(function()
 								essence = essence + amountToEssence
 								local essenceToPercent = (essence/0.142)*65
 								SetVehicleFuelLevel(veh,round(essenceToPercent))
-								TriggerEvent("advancedFuel:setEssence", 100, GetVehicleNumberPlateText(veh), GetDisplayNameFromVehicleModel(GetEntityModel(veh)))
+								TriggerEvent("esx_AdvancedFuel:setEssence", 100, GetVehicleNumberPlateText(veh), GetDisplayNameFromVehicleModel(GetEntityModel(veh)))
 								done = true
 							end
 						end
@@ -160,7 +160,7 @@ Citizen.CreateThread(function()
 		if isNearFuelStation and not IsPedInAnyVehicle(GetPlayerPed(-1), -1) and PlayerData.job ~= nil and PlayerData.job.name == 'pompiste' then
 			HelpPromt('Appuyez sur ~INPUT_CONTEXT~ pour remplir la pompe')
 			if(IsControlJustPressed(1, 38)) then
-				TriggerServerEvent("pompiste:checkessence", stationNumber)
+				TriggerServerEvent("esx_pompiste:checkessence", stationNumber)
 			end
 		end
 
@@ -250,7 +250,7 @@ Citizen.CreateThread(function()
 		if isNearFuelBStation and not IsPedInAnyVehicle(GetPlayerPed(-1), -1) and PlayerData.job ~= nil and PlayerData.job.name == 'pompiste' then
 			HelpPromt('Appuyez sur ~INPUT_CONTEXT~ pour remplir la pompe')
 			if(IsControlJustPressed(1, 38)) then
-				TriggerServerEvent("pompiste:checkessence", stationBoatNumber)
+				TriggerServerEvent("esx_pompiste:checkessence", stationBoatNumber)
 			end
 		end
 
@@ -298,7 +298,7 @@ Citizen.CreateThread(function()
 		if isNearFuelPStation and not IsPedInAnyVehicle(GetPlayerPed(-1), -1) and PlayerData.job ~= nil and PlayerData.job.name == 'pompiste' then
 			HelpPromt('Appuyez sur ~INPUT_CONTEXT~ pour remplir la pompe')
 			if(IsControlJustPressed(1, 38)) then
-				TriggerServerEvent("pompiste:checkessence", stationPlaneNumber)
+				TriggerServerEvent("esx_pompiste:checkessence", stationPlaneNumber)
 			end
 		end
 
@@ -346,7 +346,7 @@ Citizen.CreateThread(function()
 		if isNearFuelHStation and not IsPedInAnyVehicle(GetPlayerPed(-1), -1) and PlayerData.job ~= nil and PlayerData.job.name == 'pompiste' then
 			HelpPromt('Appuyez sur ~INPUT_CONTEXT~ pour remplir la pompe')
 			if(IsControlJustPressed(1, 38)) then
-				TriggerServerEvent("pompiste:checkessence", stationHeliNumber)
+				TriggerServerEvent("esx_pompiste:checkessence", stationHeliNumber)
 			end
 		end
 
@@ -782,8 +782,8 @@ end)
 
 
 
-RegisterNetEvent("advancedFuel:setEssence")
-AddEventHandler("advancedFuel:setEssence", function(percent, plate, model)
+RegisterNetEvent("esx_AdvancedFuel:setEssence")
+AddEventHandler("esx_AdvancedFuel:setEssence", function(percent, plate, model)
 	local toEssence = (percent/100)*0.142
 
 	if(GetVehicleNumberPlateText(GetVehiclePedIsUsing(GetPlayerPed(-1))) == plate and model == GetDisplayNameFromVehicleModel(GetEntityModel(GetVehiclePedIsUsing(GetPlayerPed(-1))))) then
@@ -792,7 +792,7 @@ AddEventHandler("advancedFuel:setEssence", function(percent, plate, model)
 		SetVehicleFuelLevel(GetVehiclePedIsIn(GetPlayerPed(-1)),round(essenceToPercent))
 	end
 
-	TriggerServerEvent("advancedFuel:setEssence_s",percent,plate,model)
+	TriggerServerEvent("esx_AdvancedFuel:setEssence_s",percent,plate,model)
 end)
 
 
