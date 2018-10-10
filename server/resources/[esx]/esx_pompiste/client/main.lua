@@ -20,7 +20,7 @@ local OnJob                     = false
 local inService               = false
 local onDuty = false
 local Blips                   = {}
- 
+
 
 PLATE = "xxxx"
 
@@ -31,7 +31,7 @@ end)
 
 Citizen.CreateThread(function()
 	while ESX == nil do
-		TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
+		TriggerEvent('esx_pompiste:getSharedObject', function(obj) ESX = obj end)
 		Citizen.Wait(0)
 	end
 end)
@@ -50,8 +50,8 @@ function OpenpompisteActionsMenu()
 
 	ESX.UI.Menu.CloseAll()
 
-	ESX.UI.,Menu.Open(
-		'default' GetCurrentResourceName(), 'pompiste_actions',
+	ESX.UI.Menu.Open(
+		'default', GetCurrentResourceName(), 'pompiste_actions',
 		{
 			title    = _U('blip_pompiste'),
 			elements = elements
@@ -247,7 +247,7 @@ function OpenMobilepompisteActionsMenu()
 							if data.current.value == 'prop_roadcone02a' then
 							  z = z
 							end
-
+ 
 							ESX.Game.SpawnObject(data.current.value, {
 								x = x + xF,
 								y = y + yF,
@@ -297,11 +297,8 @@ AddEventHandler('esx:setJob', function(job)
 	CreateBlip()
 end)
 
-
-
-
 AddEventHandler('esx_pompiste:hasEnteredMarker', function(zone)
-	--Citizen.Trace('zone: ' .. zone)
+Citizen.Trace('zone: ' .. zone)
 	if zone == 'Actions' and PlayerData.job ~= nil and PlayerData.job.name == "pompiste" then
 		CurrentAction     = 'pompiste_actions_menu'
 		CurrentActionMsg  = _U('pompiste_menu')
@@ -327,21 +324,15 @@ AddEventHandler('esx_pompiste:hasEnteredMarker', function(zone)
 	end
 end)
 
-
-
-
-
-
 AddEventHandler('esx_pompiste:hasExitedMarker', function(zone)
-	ESX.UI.Menu.CloseAll()
-	if (zone == 'disti') and PlayerData.job ~= nil and PlayerData.job.name == "pompiste" then
-		TriggerServerEvent('esx_pompiste:stopDistil')
+	if zone == 'disti' and PlayerData.job ~= nil and PlayerData.job.name == "pompiste" then
+		TriggerServerEvent('esx_pompiste:stopDistiling')
 	end
-	if (zone == 'recolte') and PlayerData.job ~= nil and PlayerData.job.name == "pompiste" then
-		TriggerServerEvent('esx_pompiste:stopRecolting')
+	if zone == 'recolte' and PlayerData.job ~= nil and PlayerData.job.name == "pompiste" then
+		TriggerServerEvent('esx_pompiste:stopRecoting')
 	end
 	CurrentAction = nil
-
+--	ESX.UI.Menu.CloseAll()
 end)
 
 -- Display markers
@@ -396,7 +387,7 @@ end)
 Citizen.CreateThread(function()
 	while true do
 
-		Citizen.Wait(0)
+		Wait(0)
 
 		if PlayerData.job ~= nil and PlayerData.job.name == 'pompiste' then
 
@@ -625,41 +616,39 @@ end
 -- Key Controls
 Citizen.CreateThread(function()
     while true do
-
         Citizen.Wait(0)
-
         if CurrentAction ~= nil then
-
             SetTextComponentFormat('STRING')
             AddTextComponentString(CurrentActionMsg)
             DisplayHelpTextFromStringLabel(0, 0, 1, -1)
             
-            if IsControlJustReleased(0, Keys['E']) and PlayerData.job ~= nil and PlayerData.job.name == 'pompiste' then
+            if IsControlJustReleased(0, 38) and PlayerData.job ~= nil and PlayerData.job.name == 'pompiste' then
 
-
+            	TriggerServerEvent('esx:clientLog', 'PUSHING E')
                 if CurrentAction == 'pompiste_actions_menu' then
-           			TriggerServerEvent('esx:clientLog', 'TestServeurDebug pompiste action') ---test debug
-                             OpenpompisteActionsMenu()
-
+                    OpenpompisteActionsMenu()
                 elseif CurrentAction == 'delete_vehicle'  then
                     local playerPed = GetPlayerPed(-1)
                     local vehicle   = GetVehiclePedIsIn(playerPed,  false)
                     local hash      = GetEntityModel(vehicle)
-
-                  	  if hash == GetHashKey('contender') or hash == GetHashKey('phantom') or hash == GetHashKey('tanker') then
-                   	   		if Config.MaxInService ~= -1 then
-                   	        	TriggerServerEvent('esx_service:disableService', 'pompiste')
-                   		    end
-                        ESX.Game.DeleteVehicle(CurrentActionData.vehicle)
-                   	  else
+                    if hash == GetHashKey('contender') or hash == GetHashKey('phantom') or hash == GetHashKey('tanker') then
+                        if Config.MaxInService ~= -1 then
+                            TriggerServerEvent('esx_service:disableService', 'pompiste')
+                        end
+                        DeleteVehicle(vehicle)
+                    else
                         ESX.ShowNotification(_U('wrong_veh'))
-                   	  end
-
+                    end
 				elseif CurrentAction == 'pompiste_disti' then
-					TriggerServerEvent('esx_pompiste:startDistil')
+					TriggerServerEvent('esx:clientLog', 'TriggerServerEvent(esx_pompiste:Distiling)')--log for debug
+					TriggerServerEvent('esx_pompiste:startDistiling', CurrentActionData.zone)
+					TriggerServerEvent('esx:clientLog', 'TriggerServerEvent(esx_pompiste:Distiling) --->passed') --log for debug
 
 				elseif CurrentAction == 'pompiste_recolte' then
-					TriggerServerEvent('esx_pompiste:starRecolting')
+
+					TriggerServerEvent('esx:clientLog', 'TriggerServerEvent(esx_pompiste:Recolting)') --log for debug
+					TriggerServerEvent('esx_pompiste:starRecolting', CurrentActionData.zone)
+					TriggerServerEvent('esx:clientLog', 'TriggerServerEvent(esx_pompiste:Recolting) --->passed') --log for debug
                 end
 
                 CurrentAction = nil
@@ -668,7 +657,7 @@ Citizen.CreateThread(function()
             
         end
 
-        if IsControlJustReleased(0, Keys['F6']) and PlayerData.job ~= nil and PlayerData.job.name == 'pompiste' then
+        if IsControlJustReleased(0, 166) and PlayerData.job ~= nil and PlayerData.job.name == 'pompiste' then
             OpenMobilepompisteActionsMenu()
         end
     end

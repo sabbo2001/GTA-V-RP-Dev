@@ -2,10 +2,10 @@ Config                        = {}
 Config.DrawDistance           = 100.0
 Config.Locale                 = 'fr'
 
-Config.TimeToDistil           = 10000 --Temps pour distiller
+Config.TimeToDistil           = 100 --Temps pour distiller
 Config.ItemDistiled           = 20    --Nombre de pétrole pour faire 10 d'essence
 
-Config.TimeToRecolte          = 10000 --Temps pour recolté
+Config.TimeToRecolte          = 100 --Temps pour recolté
 Config.ItemRecolte            = 5     --nombre de petrole par timer
 
 
